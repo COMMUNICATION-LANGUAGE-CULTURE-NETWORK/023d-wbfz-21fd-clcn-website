@@ -1,0 +1,399 @@
+/* =============================================================
+   CLCN — Communication Language & Culture Network
+   Design: Contemporary Civic / Editorial Non-Profit
+   Colours: Red #D82F27 | Orange #FC5328 | Blue #009FE6 | Black #1A1A1A
+   Fonts: Poppins (headings, brand) | Calibri (body)
+   ============================================================= */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* CLCN brand colours */
+  --clcn-red: #D82F27;
+  --clcn-orange: #FC5328;
+  --clcn-blue: #009FE6;
+  --clcn-black: #2C2C2C;
+  --clcn-offwhite: #FAF8F5;
+  --clcn-cream: #F5F1EB;
+}
+
+:root {
+  --radius: 0.125rem; /* sharp corners — editorial feel */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.15 0.01 30);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 30);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 30);
+  --primary: oklch(0.45 0.22 25);   /* CLCN red */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0.005 60);
+  --secondary-foreground: oklch(0.3 0.01 30);
+  --muted: oklch(0.96 0.003 60);
+  --muted-foreground: oklch(0.55 0.01 60);
+  --accent: oklch(0.96 0.003 60);
+  --accent-foreground: oklch(0.15 0.01 30);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.9 0.003 60);
+  --input: oklch(0.9 0.003 60);
+  --ring: oklch(0.45 0.22 25);
+  --chart-1: oklch(0.45 0.22 25);
+  --chart-2: oklch(0.55 0.19 220);
+  --chart-3: oklch(0.6 0.2 40);
+  --chart-4: oklch(0.7 0.15 60);
+  --chart-5: oklch(0.8 0.1 80);
+  --sidebar: oklch(0.12 0.005 30);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.45 0.22 25);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.2 0.005 30);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.25 0.005 30);
+  --sidebar-ring: oklch(0.45 0.22 25);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* ============================================================
+     CLCN Brand Colours (utility classes)
+     ============================================================ */
+  .bg-clcn-red { background-color: #D82F27; }
+  .bg-clcn-orange { background-color: #FC5328; }
+  .bg-clcn-blue { background-color: #009FE6; }
+  .bg-clcn-black { background-color: #1A1A1A; }
+  .bg-clcn-offwhite { background-color: #F9F7F5; }
+  .text-clcn-red { color: #D82F27; }
+  .text-clcn-orange { color: #FC5328; }
+  .text-clcn-blue { color: #009FE6; }
+  .text-clcn-black { color: #1A1A1A; }
+  .border-clcn-red { border-color: #D82F27; }
+  .border-clcn-blue { border-color: #009FE6; }
+
+  /* ============================================================
+     CLCN Buttons
+     ============================================================ */
+  .btn-clcn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #D82F27;
+    color: white;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+    border: 2px solid #D82F27;
+    white-space: nowrap;
+  }
+  .btn-clcn-primary:hover {
+    background-color: #b82520;
+    border-color: #b82520;
+    transform: translateY(-1px);
+  }
+
+  .btn-clcn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: #D82F27;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    border: 2px solid #D82F27;
+    white-space: nowrap;
+  }
+  .btn-clcn-outline:hover {
+    background-color: #D82F27;
+    color: white;
+  }
+
+  .btn-clcn-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #009FE6;
+    color: white;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+    border: 2px solid #009FE6;
+    white-space: nowrap;
+  }
+  .btn-clcn-blue:hover {
+    background-color: #007bbf;
+    border-color: #007bbf;
+  }
+
+  /* ============================================================
+     Typography helpers
+     ============================================================ */
+  .section-label {
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #D82F27;
+  }
+
+  .heading-accent {
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  .heading-accent::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 3px;
+    background-color: #D82F27;
+  }
+
+  .pull-quote {
+    border-left: 4px solid #D82F27;
+    padding: 0.75rem 1.25rem;
+    font-family: "Poppins", Arial, sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    color: #D82F27;
+    background-color: #FFF5F5;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     Program cards
+     ============================================================ */
+  .program-card {
+    background: white;
+    border: 1px solid #e8e4e0;
+    border-top: 4px solid #D82F27;
+    padding: 1.5rem;
+    border-radius: 2px;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+  .program-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .program-card.blue-accent {
+    border-top-color: #009FE6;
+  }
+
+  /* ============================================================
+     Org chart nodes
+     ============================================================ */
+  .org-node {
+    background: #FFF0EF;
+    border: 1px solid #f5c4c1;
+    color: #1A1A1A;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.4rem 0.75rem;
+    border-radius: 2px;
+    text-align: center;
+  }
+  .org-node.top-level {
+    background: #D82F27;
+    color: white;
+    border-color: #D82F27;
+    font-weight: 700;
+  }
+  .org-node.mid-level {
+    background: #FC5328;
+    color: white;
+    border-color: #FC5328;
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     Dot grid background texture
+     ============================================================ */
+  .dot-grid-bg {
+    background-image: radial-gradient(circle, #ffffff 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* ============================================================
+     Navbar
+     ============================================================ */
+  .navbar-link {
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1A1A1A;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    position: relative;
+    transition: color 0.15s ease;
+  }
+  .navbar-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #D82F27;
+    transition: width 0.2s ease;
+  }
+  .navbar-link:hover {
+    color: #D82F27;
+  }
+  .navbar-link:hover::after {
+    width: 100%;
+  }
+  .navbar-link.active {
+    color: #D82F27;
+  }
+  .navbar-link.active::after {
+    width: 100%;
+  }
+}
+
+  /* ============================================================
+     Nav dropdown
+     ============================================================ */
+  .nav-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    min-width: 220px;
+    background: white;
+    border: 1px solid #e8e4e0;
+    border-top: 3px solid #D82F27;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    z-index: 100;
+    border-radius: 0 0 2px 2px;
+  }
+  .nav-dropdown a {
+    display: block;
+    padding: 0.6rem 1rem;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: #1A1A1A;
+    text-decoration: none;
+    transition: background-color 0.1s ease, color 0.1s ease;
+    border-bottom: 1px solid #f0ece8;
+  }
+  .nav-dropdown a:last-child {
+    border-bottom: none;
+  }
+  .nav-dropdown a:hover {
+    background-color: #FFF5F5;
+    color: #D82F27;
+    padding-left: 1.25rem;
+  }
