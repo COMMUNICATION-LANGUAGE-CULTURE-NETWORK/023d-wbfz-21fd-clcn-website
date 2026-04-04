@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 # Install dependencies based on package-lock for reproducible builds
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 # Copy the rest of the source code and build the app
 COPY . .
