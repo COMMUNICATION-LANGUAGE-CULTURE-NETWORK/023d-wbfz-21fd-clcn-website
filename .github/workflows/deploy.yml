@@ -1,0 +1,83 @@
+name: 'Build and Deploy to Cloud Run'
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: '${{ vars.PROJECT_ID }}'
+  SERVICE_ACCOUNT: '${{ vars.SERVICE_ACCOUNT }}'
+  REGION: '${{ vars.REGION }}'
+  REPO: '${{ vars.REPO }}'
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/445978665203/locations/global/workloadIdentityPools/cd-pool/providers/cd-provider'
+  SERVICE_NAME: 'clcn-website'
+
+jobs:
+  deploy:
+    runs-on: 'ubuntu-latest'
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v4
+
+      # Configure Workload Identity Federation and generate an access token.
+      - name: 'Authenticate to Google Cloud'
+        id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          token_format: 'access_token'
+          workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ env.SERVICE_ACCOUNT }}'
+
+      - name: 'Configure Docker Authentication'
+        uses: 'docker/login-action@v3'
+        with:
+          username: 'oauth2accesstoken'
+          password: '${{ steps.auth.outputs.access_token }}'
+          registry: '${{ env.REGION }}-docker.pkg.dev'
+
+      - name: 'Extract short commit hash'
+        id: 'vars'
+        run: |
+          echo "SHORT_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      # Build and Push Container
+      - name: 'Build and Push Docker Image'
+        env:
+          SHORT_SHA: ${{ env.SHORT_SHA }}
+          DOCKER_REPO: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}
+        run: |
+          docker build -t clcn-website .
+          docker tag clcn-website $DOCKER_REPO/clcn-website:$SHORT_SHA
+          docker tag clcn-website $DOCKER_REPO/clcn-website:latest
+          docker push $DOCKER_REPO/clcn-website:$SHORT_SHA
+          docker push $DOCKER_REPO/clcn-website:latest
+
+      # Deploy to Cloud Run
+      - name: 'Deploy to Cloud Run'
+        id: 'deploy'
+        uses: 'google-github-actions/deploy-cloudrun@v2'
+        with:
+          service: '${{ env.SERVICE_NAME }}'
+          region: '${{ env.REGION }}'
+          image: '${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO }}/clcn-website:${{ env.SHORT_SHA }}'
+          flags: |
+            --port=8080
+            --cpu=0.25
+            --memory=512Mi
+            --min-instances=0
+            --max-instances=10
+            --concurrency=1
+            --timeout=300
+            --allow-unauthenticated
+            --ingress=all
+
+      - name: 'Show deployment URL'
+        run: |
+          echo "Deployed to: ${{ steps.deploy.outputs.url }}"
