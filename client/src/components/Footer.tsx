@@ -101,7 +101,7 @@ function WeChatQRModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 const socialLinks = [
   { label: "Facebook", href: "https://www.facebook.com/clcnau", Icon: FacebookIcon, external: true },
   { label: "Instagram", href: "https://www.instagram.com/clcnsa/", Icon: InstagramIcon, external: true },
-  { label: "YouTube", href: "https://www.youtube.com/", Icon: YouTubeIcon, external: true },
+  { label: "YouTube", href: "https://www.youtube.com/@CLCN529/", Icon: YouTubeIcon, external: true },
   { label: "LinkedIn", href: "https://www.linkedin.com/groups/14303771/", Icon: LinkedInIcon, external: true },
   { label: "WeChat", href: "#", Icon: WeChatIcon, external: false, isWeChat: true },
   { label: "RedNote", href: "https://www.xiaohongshu.com/user/profile/5c70ffa90000000011020ed8", Icon: RedNoteIcon, external: true },
@@ -295,10 +295,10 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-600">
           <p>&copy; 2026 CLCN. All rights reserved. ABN 90 645 606 631</p>
           <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-[#D82F27] transition-colors no-underline">
+            <Link href="/privacy-policy" className="hover:text-[#D82F27] transition-colors no-underline">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-[#D82F27] transition-colors no-underline">
+            <Link href="/terms-of-use" className="hover:text-[#D82F27] transition-colors no-underline">
               Terms of Service
             </Link>
           </div>
