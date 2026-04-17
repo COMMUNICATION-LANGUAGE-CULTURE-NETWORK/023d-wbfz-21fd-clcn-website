@@ -15,9 +15,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
-
-const CLCN_LOGO_URL =
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663323954928/ytYjeFnOEOgcpIid.png";
+import CLCN_LOGO from '../../public/resource-files/CLCN Primary Logo.png';
 
 interface NavChild {
   label: string;
@@ -176,13 +174,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="container" ref={navRef}>
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16" style={{"minHeight": 85}}>
           {/* Logo — official CLCN branding kit image */}
           <Link href="/" className="flex items-center no-underline">
             <img
-              src={CLCN_LOGO_URL}
+              src={CLCN_LOGO}
               alt="CLCN — Communication Language & Culture Network"
-              style={{ height: "44px", width: "auto", objectFit: "contain" }}
+              style={{ height: "52px", width: "auto", objectFit: "contain" }}
             />
           </Link>
 

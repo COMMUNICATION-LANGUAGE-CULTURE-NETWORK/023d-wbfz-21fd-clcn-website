@@ -7,10 +7,9 @@ import { Link, useLocation } from "wouter";
 import { Mail, MapPin, ExternalLink, Phone, X } from "lucide-react";
 import { useState, type MouseEvent } from "react";
 
-const CLCN_LOGO_URL =
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663323954928/ytYjeFnOEOgcpIid.png";
-const ACNC_LOGO_URL =
-  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663323954928/QYbWdknrWUIMyhHh.png";
+import ACNC_LOGO from '../../public/resource-files/ACNC-Registered-Charity-Logo_RGB.png';
+import CLCN_LOGO from '../../public/resource-files/CLCN Primary Logo.png';
+
 const WECHAT_QR_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/CLCNWeChatSubscriptionAccount50cm_d62f30c1.jpg";
 
@@ -134,13 +133,13 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-4 mb-5">
               <img
-                src={CLCN_LOGO_URL}
+                src={CLCN_LOGO}
                 alt="CLCN — Communication Language & Culture Network"
                 style={{ height: "40px", width: "auto", objectFit: "contain" }}
               />
               <div style={{ width: "1px", height: "36px", backgroundColor: "#ddd" }} />
               <img
-                src={ACNC_LOGO_URL}
+                src={ACNC_LOGO}
                 alt="ACNC Registered Charity"
                 style={{ height: "36px", width: "auto", objectFit: "contain" }}
               />
