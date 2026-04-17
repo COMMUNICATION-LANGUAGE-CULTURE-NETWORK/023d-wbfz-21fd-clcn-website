@@ -10,7 +10,7 @@ import { useState, type MouseEvent } from "react";
 import ACNC_LOGO from '../../public/resource-files/ACNC-Registered-Charity-Logo_RGB.png';
 import CLCN_LOGO from '../../public/resource-files/CLCN Primary Logo.png';
 
-/*test comment*/
+/*test commendt*/
 const WECHAT_QR_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/CLCNWeChatSubscriptionAccount50cm_d62f30c1.jpg";
 
