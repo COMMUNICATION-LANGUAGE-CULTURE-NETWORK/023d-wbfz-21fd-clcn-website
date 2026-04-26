@@ -33,12 +33,12 @@ async function startServer() {
   // Proxy /tools/SG/* to the signature generator service
   if (process.env.SIGNATURE_GENERATOR_URL) {
     const sgHost = new URL(process.env.SIGNATURE_GENERATOR_URL).host;
-    app.get("/tools/SG", (_req, res) => res.redirect(301, "/tools/SG/"));
-    app.use("/tools/SG/", (req, res) => {
-      const upstream = `https://${sgHost}${req.path === "/" ? "/" : req.path}${req.url.includes("?") ? "?" + req.url.split("?")[1] : ""}`;
-      https.get(upstream, { headers: { host: sgHost } }, (proxy) => {
-        res.writeHead(proxy.statusCode ?? 200, proxy.headers);
-        proxy.pipe(res);
+    app.use("/tools/SG", (req, res) => {
+      if (req.originalUrl === "/tools/SG") return res.redirect(301, "/tools/SG/");
+      const upstream = `https://${sgHost}${req.url}`;
+      https.get(upstream, { headers: { host: sgHost } }, (proxyRes) => {
+        res.writeHead(proxyRes.statusCode ?? 200, proxyRes.headers);
+        proxyRes.pipe(res);
       }).on("error", () => res.sendStatus(502));
     });
   }
