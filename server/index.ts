@@ -4,7 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
-import { createProxyMiddleware } from "http-proxy-middleware";
+import https from "https";
 
 dotenv.config();
 
@@ -32,15 +32,15 @@ async function startServer() {
 
   // Proxy /tools/SG/* to the signature generator service
   if (process.env.SIGNATURE_GENERATOR_URL) {
+    const sgHost = new URL(process.env.SIGNATURE_GENERATOR_URL).host;
     app.get("/tools/SG", (_req, res) => res.redirect(301, "/tools/SG/"));
-    app.use(
-      "/tools/SG/",
-      createProxyMiddleware({
-        target: process.env.SIGNATURE_GENERATOR_URL,
-        changeOrigin: true,
-        pathRewrite: { "^/tools/SG/": "/" },
-      })
-    );
+    app.use("/tools/SG/", (req, res) => {
+      const upstream = `https://${sgHost}${req.path === "/" ? "/" : req.path}${req.url.includes("?") ? "?" + req.url.split("?")[1] : ""}`;
+      https.get(upstream, { headers: { host: sgHost } }, (proxy) => {
+        res.writeHead(proxy.statusCode ?? 200, proxy.headers);
+        proxy.pipe(res);
+      }).on("error", () => res.sendStatus(502));
+    });
   }
 
   // API route for form submissions
