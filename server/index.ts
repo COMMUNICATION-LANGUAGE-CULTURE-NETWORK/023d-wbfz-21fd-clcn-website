@@ -4,6 +4,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import { createProxyMiddleware } from "http-proxy-middleware";
 
 dotenv.config();
 
@@ -28,6 +29,19 @@ async function startServer() {
   // Middleware
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+
+  // Proxy /tools/SG/* to the signature generator service
+  if (process.env.SIGNATURE_GENERATOR_URL) {
+    app.get("/tools/SG", (_req, res) => res.redirect(301, "/tools/SG/"));
+    app.use(
+      "/tools/SG/",
+      createProxyMiddleware({
+        target: process.env.SIGNATURE_GENERATOR_URL,
+        changeOrigin: true,
+        pathRewrite: { "^/tools/SG/": "/" },
+      })
+    );
+  }
 
   // API route for form submissions
   app.post('/api/contact', async (req, res) => {
