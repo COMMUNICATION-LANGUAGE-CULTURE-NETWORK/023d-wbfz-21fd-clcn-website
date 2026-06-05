@@ -17,9 +17,18 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 
+function CLPRedirect() {
+  useEffect(() => {
+    window.location.replace("/global-talent-incubator#clp");
+  }, []);
+
+  return null;
+}
+
 function Router() {
   return (
     <Switch>
+      <Route path="/clp" component={CLPRedirect} />
       <Route path="/" component={Home} />
       <Route path="/about" component={AboutUs} />
       <Route path="/programs" component={Programs} />
@@ -43,8 +52,29 @@ function App() {
   const currentPath = location.split("#")[0];
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, [currentPath]);
+  const hash = window.location.hash;
+
+  if (hash) {
+    const target = document.querySelector(hash);
+
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 50);
+
+        return;
+      }
+    }
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [location]);
 
   return (
     <ErrorBoundary>

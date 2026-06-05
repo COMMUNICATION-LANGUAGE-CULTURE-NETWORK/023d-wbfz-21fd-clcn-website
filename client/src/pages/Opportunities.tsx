@@ -147,22 +147,6 @@ export default function Opportunities() {
   const [donationError, setDonationError] = useState<string | null>(null);
   const [donationLoading, setDonationLoading] = useState(false);
 
-  useEffect(() => {
-    const scrollToHash = () => {
-      const hash = window.location.hash;
-      if (!hash) return;
-      const target = document.querySelector(hash);
-      if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 50);
-      }
-    };
-
-    scrollToHash();
-    window.addEventListener("hashchange", scrollToHash);
-    return () => window.removeEventListener("hashchange", scrollToHash);
-  }, []);
 
   async function handleDonateSubmit(e: React.FormEvent) {
     e.preventDefault();

@@ -113,7 +113,7 @@ export default function GlobalTalentIncubator() {
         </section>
 
         {/* CLP */}
-        <section className="bg-[#F9F7F5] py-16">
+        <section id="clp" className="bg-[#F9F7F5] py-16" style={{ scrollMarginTop: '100px' }}>
           <div className="container">
             <div className="max-w-3xl mx-auto">              <h2
                 className="heading-accent text-[#1A1A1A] font-black mb-5"
