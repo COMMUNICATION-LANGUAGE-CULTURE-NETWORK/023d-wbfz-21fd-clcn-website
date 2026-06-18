@@ -14,6 +14,7 @@ import { Link } from "wouter";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { navigate } from "wouter/use-browser-location";
 
 const GTI_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/PXL_20240309_005619513.MP_d4965c13.jpg";
@@ -149,6 +150,11 @@ export default function GlobalTalentIncubator() {
               <p className="text-gray-600 leading-relaxed mt-6">
                 Human-skills training and organisational immersion are integrated components of CLP, providing first-hand exposure to Australian workplace culture, cross-cultural collaboration, and professional expectations.
               </p>
+
+              <button type="button" className="btn-clcn-primary disabled:opacity-50 disabled:cursor-not-allowed mt-6" onClick={() => navigate('/contact?ref=clp')}>
+                Enquire CLP<ArrowRight size={16} />
+              </button>
+
             </div>
           </div>
         </section>

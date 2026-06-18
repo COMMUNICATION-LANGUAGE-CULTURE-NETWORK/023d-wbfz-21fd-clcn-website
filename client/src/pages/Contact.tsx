@@ -6,9 +6,13 @@ import axios from "axios";
 import { Mail, MapPin, Phone, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useSearchParams } from "wouter";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "General Enquiry", message: "" });
+  const [searchParams] = useSearchParams();
+  const ref = searchParams.get('ref');
+
+  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: ref == 'clp' ? "CLP Enquiry" : "General Enquiry", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -167,6 +171,7 @@ export default function Contact() {
                         <option value="Collaboration & Sponsorship">Collaboration & Sponsorship</option>
                         <option value="Sponsorship">Sponsorship</option>
                         <option value="Media Enquiry">Media Enquiry</option>
+                        <option value="CLP Enquiry">CLP Enquiry</option> 
                       </select>
                     </div>
                     <div>
