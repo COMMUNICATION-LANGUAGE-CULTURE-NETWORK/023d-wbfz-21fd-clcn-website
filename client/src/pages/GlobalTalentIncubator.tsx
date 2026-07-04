@@ -151,8 +151,8 @@ export default function GlobalTalentIncubator() {
                 Human-skills training and organisational immersion are integrated components of CLP, providing first-hand exposure to Australian workplace culture, cross-cultural collaboration, and professional expectations.
               </p>
 
-              <button type="button" className="btn-clcn-primary disabled:opacity-50 disabled:cursor-not-allowed mt-6" onClick={() => navigate('/contact?ref=clp')}>
-                Enquire CLP<ArrowRight size={16} />
+              <button type="button" className="btn-clcn-primary disabled:opacity-50 disabled:cursor-not-allowed mt-6" onClick={() => navigate('/career-launch-program')}>
+                See more<ArrowRight size={16} />
               </button>
 
             </div>

@@ -205,7 +205,7 @@ export default function Footer() {
                 { label: "Corporate Membership", href: "/opportunities#membership" },
                 { label: "Sponsorship", href: "/opportunities#sponsorship" },
                 { label: "Donate", href: "/opportunities#donate" },
-                { label: "CLP", href: "/clp" },
+                { label: "CLP", href: "/career-launch-program" },
                 { label: "Contact Us", href: "/contact" },
               ].map((link) => (
                 <li key={link.href}>

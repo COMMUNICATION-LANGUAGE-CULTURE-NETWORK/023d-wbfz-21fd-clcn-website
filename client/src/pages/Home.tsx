@@ -13,7 +13,7 @@
    Brand colours: Red #D82F27 | Blue #009FE6 | Orange #FC5328
    ============================================================= */
 import { Link } from "wouter";
-import { ArrowRight, Users, Calendar, Globe, UserCheck } from "lucide-react";
+import { ArrowRight, Users, Calendar, Globe, UserCheck, Heart } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -30,10 +30,9 @@ const COMMUNITY_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/mmexport1694852299014_a6af8fb6.jpg";
 
 const stats = [
-  { icon: Calendar, value: "300+", label: "Events Hosted", color: "#D82F27" },
-  { icon: Users, value: "10,000+", label: "Participants", color: "#009FE6" },
-  { icon: UserCheck, value: "100+", label: "Active Volunteers", color: "#FC5328" },
-  { icon: Globe, value: "2018", label: "Founded", color: "#D82F27" },
+  { icon: Calendar, value: "300+", label: "Events Hosted" },
+  { icon: Users, value: "10,000+", label: "Participants Reached" },
+  { icon: Heart, value: "100+", label: "Active Volunteers" },
 ];
 
 const programs = [
@@ -66,52 +65,63 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <section className="relative min-h-[65vh] md:min-h-[75vh] flex items-center py-0 md:py-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${HERO_IMG})` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
-          <div className="relative container py-20">
-            <div className="max-w-2xl">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+          <div className="relative container py-10 z-10">
+            <div className="max-w-3xl">
+              {/* Eyebrow Label */}
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-gray-300 text-xs font-normal uppercase tracking-wider">
+                  Volunteer Led Multicultural Community Since 2018
+                </span>
+                <div className="w-25 h-[2px] bg-[#D82F27]" />
+              </div>
+
+              {/* Main Heading */}
               <h1
-                className="text-white font-black mb-6 leading-tight"
+                className="text-white font-black mb-6 leading-tight tracking-tight"
                 style={{
                   fontSize: "clamp(2.5rem, 5vw, 4rem)",
                 }}
               >
-                Human Capability{" "}
-                <span className="text-[#D82F27]">Infrastructure</span>
+                CLCN - <span className="font-normal">Where <span className="text-[#E30B0F] font-normal">potential</span> becomes <span className="text-[#E30B0F] font-normal">capability</span></span>
               </h1>
-              <p className="text-gray-200 text-lg leading-relaxed mb-8 max-w-xl">
-                CLCN is an ACNC-registered not-for-profit organisation operating as human capability infrastructure within local, national, and global talent systems.
+
+              {/* Description */}
+              <p className="text-gray-200 text-xl leading-relaxed mb-10 max-w-2xl font-light">
+                Building career-ready global talent through real-world experience, supported responsibility, and meaningful connections in Australia.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Link href="/programs" className="btn-clcn-primary">
-                  Explore Our Programs
-                  <ArrowRight size={16} />
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-10 mb-8">
+                <Link 
+                  href="/programs" 
+                  className="px-8 py-3 rounded-md text-white font-bold tracking-wide uppercase transition-colors duration-200 text-sm"
+                  style={{ backgroundColor: "#D82F27" }}
+                >
+                  Explore Programs
                 </Link>
-                <Link href="/opportunities#volunteer" className="btn-clcn-outline" style={{ color: "white", borderColor: "white" }}>
-                  Get Involved
+                <Link 
+                  href="/opportunities#volunteer" 
+                  className="px-8 py-3 rounded-md text-white font-bold tracking-wide uppercase border-2 border-white bg-black/40 backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-200 text-sm"
+                >
+                  Join the Community
                 </Link>
               </div>
-              <div className="mt-10 flex flex-wrap gap-6">
+
+              {/* Integrated Bottom Stats Layout */}
+              <div className="flex flex-wrap gap-12 sm:gap-16 pt-6">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: stat.color }}
-                    >
-                      <stat.icon size={18} className="text-white" />
+                  <div key={stat.label} className="flex flex-col min-w-[120px]" style={{alignItems: 'center'}}>
+                    <stat.icon size={36} className="text-[#D82F27] mb-3 stroke-[1.5]" />
+                    <div className="text-white font-extrabold text-3xl sm:text-4xl leading-none tracking-tight mb-1">
+                      {stat.value}
                     </div>
-                    <div>
-                      <div
-                        className="text-white font-bold text-xl leading-tight"
-                      >
-                        {stat.value}
-                      </div>
-                      <div className="text-gray-300 text-xs">{stat.label}</div>
-                    </div>
+                    <div className="text-gray-300 text-sm font-medium">{stat.label}</div>
                   </div>
                 ))}
               </div>

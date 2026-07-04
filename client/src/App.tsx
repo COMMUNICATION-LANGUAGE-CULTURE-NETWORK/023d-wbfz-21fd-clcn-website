@@ -16,6 +16,7 @@ import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
+import CareerLaunchProgram from "./pages/CareerLaunchProgram";
 
 function CLPRedirect() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function CLPRedirect() {
 function Router() {
   return (
     <Switch>
+      <Route path="career-launch-program" component={CareerLaunchProgram} />
       <Route path="/clp" component={CLPRedirect} />
       <Route path="/" component={Home} />
       <Route path="/about" component={AboutUs} />

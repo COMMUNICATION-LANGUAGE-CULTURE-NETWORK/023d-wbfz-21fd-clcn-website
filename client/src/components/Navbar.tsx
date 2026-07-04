@@ -48,6 +48,10 @@ const navItems: NavItem[] = [
     href: "/global-talent-incubator",
   },
   {
+    label: "CLP",
+    href: "career-launch-program"
+  },
+  {
     label: "Events",
     href: "/events",
   },
