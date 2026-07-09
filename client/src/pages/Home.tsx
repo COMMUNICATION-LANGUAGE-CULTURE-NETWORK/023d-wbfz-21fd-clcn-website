@@ -17,7 +17,7 @@ import { ArrowRight, Users, Calendar, Globe, UserCheck, Heart } from "lucide-rea
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import HERO_IMG from '../../public/resource-files/CLCN_HOME_HERO.JPG';
+import HERO_IMG from '../../public/resource-files/CLCN_HOME_HERO.jpg';
 
 const PROGRAMS_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/DSC01566_39a00f2a.JPG";
