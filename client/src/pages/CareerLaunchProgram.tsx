@@ -24,8 +24,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/Copy_of__DSC5355_018d6003.jpg";
-const WORKSHOP_IMG = "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80";
-const TEAM_IMG = "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80";
+import WORKSHOP_IMG from '../../public/resource-files/CLCN_CLP_WORKSHOP.jpg';
+import TEAM_IMG from '../../public/resource-files/CLCN_CLP_TEAM.jpg';
 
 const programStructure = [
   { icon: Calendar, label: "Duration", value: "13 weeks" },
