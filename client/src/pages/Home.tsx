@@ -87,7 +87,7 @@ export default function Home() {
                   fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 500
                 }}
               >
-                CLCN - <span>Where <span className="text-[#E30B0F]">potential</span> becomes <span className="text-[#E30B0F]">capability</span></span>
+                CLCN - <span >Where <span className="text-[#E30B0F]">potential</span> becomes <span className="text-[#E30B0F]">capability</span></span>
               </h1>
 
               {/* Description */}
