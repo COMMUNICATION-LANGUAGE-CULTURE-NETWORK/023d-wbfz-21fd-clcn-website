@@ -24,8 +24,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/Copy_of__DSC5355_018d6003.jpg";
-import WORKSHOP_IMG from '../../public/resource-files/CLCN_CLP_WORKSHOP.jpg';
-import TEAM_IMG from '../../public/resource-files/CLCN_CLP_TEAM.jpg';
 
 const programStructure = [
   { icon: Calendar, label: "Duration", value: "13 weeks" },
@@ -342,7 +340,7 @@ export default function CareerLaunchProgram() {
           <div className="container">
             <div className="flex flex-col lg:flex-row gap-16 items-center">
               <div className="lg:w-1/2">
-                <img src={WORKSHOP_IMG} alt="CLP Workshop" className="w-full h-[400px] object-cover rounded-sm shadow-lg" />
+                <img src='/resource-files/CLCN_CLP_WORKSHOP.jpg' alt="CLP Workshop" className="w-full h-[400px] object-cover rounded-sm shadow-lg" />
               </div>
               <div className="lg:w-1/2">
                 <h2 className="heading-accent text-[#1A1A1A] font-bold mb-8" style={{ fontSize: "2rem" }}>
@@ -444,7 +442,7 @@ export default function CareerLaunchProgram() {
           <div className="container">
             <div className="flex flex-col lg:flex-row-reverse gap-16 items-start">
               <div className="lg:w-1/3">
-                <img src={TEAM_IMG} alt="CLCN Team" className="w-full h-[500px] object-cover rounded-sm shadow-lg sticky top-8" />
+                <img src='resource-files/CLCN_CLP_TEAM.jpg' alt="CLCN Team" className="w-full h-[500px] object-cover rounded-sm shadow-lg sticky top-8" />
               </div>
               <div className="lg:w-2/3">
                 <h2 className="heading-accent text-[#1A1A1A] font-bold mb-6" style={{ fontSize: "2rem" }}>

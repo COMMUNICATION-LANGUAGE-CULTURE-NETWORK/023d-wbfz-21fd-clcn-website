@@ -17,8 +17,6 @@ import { ArrowRight, Users, Calendar, Globe, UserCheck, Heart } from "lucide-rea
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import HERO_IMG from '../../public/resource-files/CLCN_HOME_HERO.jpg';
-
 const PROGRAMS_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663323954928/MQjgZLsG6Jz5ukKXctHem3/DSC01566_39a00f2a.JPG";
 
@@ -67,7 +65,7 @@ export default function Home() {
         <section className="relative min-h-[65vh] md:min-h-[75vh] flex items-center py-0 md:py-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${HERO_IMG})` }}
+            style={{ backgroundImage: `url('/resource-files/CLCN_HOME_HERO.jpg')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
           <div className="relative container py-10 z-10">
