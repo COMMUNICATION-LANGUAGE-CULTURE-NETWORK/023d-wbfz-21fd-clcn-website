@@ -65,7 +65,7 @@ export default function Home() {
         <section className="relative min-h-[65vh] md:min-h-[75vh] flex items-center py-0 md:py-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/resource-files/CLCN_HOME_HERO.jpg')" }}
+            style={{ backgroundImage: "url('/resource-files/CLCN_HOME_HERO.JPG')" }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
           <div className="relative container py-10 z-10">
