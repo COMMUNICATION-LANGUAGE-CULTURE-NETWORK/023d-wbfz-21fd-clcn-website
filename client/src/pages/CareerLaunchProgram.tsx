@@ -121,7 +121,7 @@ export default function CareerLaunchProgram() {
             <div className="max-w-3xl">
               <div className="flex flex-wrap items-center gap-4 mb-6">
                 <span className="text-[#D82F27] bg-[#D82F27]/10 border border-[#D82F27]/30 px-4 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider">
-                  Applications for CLP Cohort 1 are now open. Closes 8 July 2026.
+                  Applications for CLP Cohort 1 are now open.
                 </span>
               </div>
 
@@ -369,12 +369,8 @@ export default function CareerLaunchProgram() {
                     <span className="text-gray-600 text-sm">Written application followed by an interview</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                    <span className="font-semibold text-gray-700">Cohort 1 start date:</span>
-                    <span className="text-gray-600 text-sm font-bold">16 July 2026</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-gray-200">
-                    <span className="font-semibold text-gray-700">Applications close:</span>
-                    <span className="text-[#D82F27] text-sm font-bold">8 July 2026</span>
+                    <span className="font-semibold text-gray-700">Cohorts:</span>
+                    <span className="text-gray-600 text-sm font-bold">16 participants</span>
                   </div>
                   {/*<div className="flex justify-between items-center py-2 border-b border-gray-200">
                     <span className="font-semibold text-gray-700">Program fee:</span>
@@ -428,7 +424,7 @@ export default function CareerLaunchProgram() {
             <div className="bg-[#D82F27]/10 border border-[#D82F27]/20 rounded-sm p-8 text-center flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
               <div>
                 <h4 className="text-xl font-bold text-[#1A1A1A] mb-2" style={{ textAlign: 'left' }}>Ready to apply?</h4>
-                <p className="text-gray-700">Applications for CLP Cohort 1 close 8 July 2026.</p>
+                <p className="text-gray-700">Applications for Cohort 1 now open</p>
               </div>
               <Link href="/contact?ref=clp" className="px-8 py-3 rounded-sm text-white font-bold uppercase transition-colors duration-200 shadow-md flex-shrink-0" style={{ backgroundColor: "#D82F27" }}>
                 Apply Now
@@ -520,7 +516,7 @@ export default function CareerLaunchProgram() {
               </p>
               
               <div className="my-10 p-8 bg-gray-50 border border-gray-100 rounded-sm text-center shadow-sm">
-                <div className="text-5xl font-black text-[#D82F27] mb-2">~90%</div>
+                <div className="text-5xl font-black text-[#D82F27] mb-2">&gt;90%</div>
                 <div className="text-xl font-bold text-gray-900 mb-4">Conversion Rate</div>
                 <p className="text-sm text-gray-600 max-w-2xl mx-auto">
                   Of CLCN's active volunteers who are actively seeking employment, approximately 50 individuals, more than 40 have secured full-time roles relevant to their field within 8 months of active involvement — from July 2025 to date.
@@ -528,7 +524,7 @@ export default function CareerLaunchProgram() {
               </div>
 
               <p className="mb-6">
-                That is a conversion rate of close to 90%. Not through luck or volume, but through the same structured, immersive, contribution-based environment that CLP delivers in a 13-week program.
+                That is a conversion rate of more than 90%. Not through luck or volume, but through the same structured, immersive, contribution-based environment that CLP delivers in a 13-week program.
               </p>
               <p>
                 CLP is the structured, condensed version of that formation model. Designed to deliver in 13 weeks what the volunteer community builds over a longer arc. CLP graduates will enter the job market with the same professional foundation, the same demonstrated capability, and the same track record that has consistently converted formation into employment for those who have come before them.
@@ -572,12 +568,6 @@ export default function CareerLaunchProgram() {
               This is the professional formation environment most people never get access to. 13 weeks. Real contribution. Real outcomes. If you recognise yourself in what this program offers, the next step is an application.
             </p>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-sm inline-block border border-white/20 mb-8">
-              <p className="text-white font-semibold text-lg">
-                Applications close 8 July 2026. Cohort 1 begins 16 July 2026.
-              </p>
-            </div>
-
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link 
                 href="/contact?ref=clp" 
